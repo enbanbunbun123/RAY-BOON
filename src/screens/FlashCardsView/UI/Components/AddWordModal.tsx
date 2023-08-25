@@ -96,7 +96,7 @@ export const AddWordModal: FC<AddWordModalProps> = ({
                 setNewMean('');
                 setNewLang('');
                 setNewExample('');
-                handleClose()
+                handleClose();
               }}
             >
               <Text style={styles.buttonText}>閉じる</Text>
