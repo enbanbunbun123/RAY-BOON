@@ -91,7 +91,13 @@ export const AddWordModal: FC<AddWordModalProps> = ({
             </TouchableOpacity>
             <TouchableOpacity 
               style={{...styles.button, ...styles.closeButton}}
-              onPress={handleClose}
+              onPress={() => {
+                setNewWord('');
+                setNewMean('');
+                setNewLang('');
+                setNewExample('');
+                handleClose()
+              }}
             >
               <Text style={styles.buttonText}>閉じる</Text>
             </TouchableOpacity>
