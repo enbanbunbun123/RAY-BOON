@@ -82,21 +82,17 @@ export const FlashCardsViewCon: FC<FlashCardsListConProps> = (props) => {
     setWordsData((prev) => prev.filter((currentItem) => currentItem.id !== item?.id));
   };
   const handleAdd = () => {
-    if(!newWord){
-      Toast.show({
-        text1: '単語名は必須項目です。',
-        type: 'error',
-        visibilityTime: 2000,
-      });
-      return;
-    }
-    if(!newMean){
-      Toast.show({
-        text1: '単語の意味は必須項目です。',
-        type: 'error',
-        visibilityTime: 2000,
-      });
-      return;
+    if([newWord, newMean].includes('')) {
+      const errorMessage =
+      newWord === ''
+      ? '単語名は入力必須項目です。'
+      : '単語の意味は入力必須項目です。';
+        Toast.show({
+          text1: errorMessage,
+          type: 'error',
+          visibilityTime: 2000,
+        });
+        return;
     }
 
     setLoading(true);
@@ -129,13 +125,17 @@ export const FlashCardsViewCon: FC<FlashCardsListConProps> = (props) => {
     handleClose();
   };
   const handleEdit = () => {
-    if(!wordName){
-      Toast.show({
-        text1: '単語名は必須項目です。',
-        type: 'error',
-        visibilityTime: 2000,
-      });
-      return;
+    if([wordName, wordMean].includes('')) {
+      const errorMessage =
+      wordName === ''
+      ? '単語名は入力必須項目です。'
+      : '単語の意味は入力必須項目です。';
+        Toast.show({
+          text1: errorMessage,
+          type: 'error',
+          visibilityTime: 2000,
+        });
+        return;
     }
 
     setLoading(true);
