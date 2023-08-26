@@ -59,6 +59,11 @@ export const FlashCardsViewCon: FC<FlashCardsListConProps> = (props) => {
     setIsEditOpen(true);
   };
   const handleEditClose = () => {
+    const currentItem = wordsData.find((item) => item.id === activeId);
+    setWordName(currentItem?.name || '');
+    setWordMean(currentItem?.mean || '');
+    setWordLang(currentItem?.lang || '');
+    setWordExample(currentItem?.example || '');
     setIsEditOpen(false);
   };
   const handleNameEditChanged = (text: string) => {
